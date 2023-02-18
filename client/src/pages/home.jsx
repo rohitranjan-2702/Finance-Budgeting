@@ -18,13 +18,12 @@ const Home = () => {
                 <img src="https://i.ibb.co/2FbV2vm/Ellipse.png" alt="profile picture" class="mr-3 h-10 w-10 rounded-full" /> */}
             </div>
             <div>
-                <button
-                class="ml-4 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-blue-700 disabled:bg-gray-400">Get
-                Started</button>
-            </div>
+              <button class="text-md px-6 py-3 font-semibold text-blue-600 transition-all hover:text-blue-700 disabled:bg-gray-400">Login</button>
+              <button class="text-md rounded-full bg-blue-600 px-4 py-2 font-medium text-white transition-all hover:bg-blue-700 disabled:bg-gray-400">Sign Up</button>
             </div>
         </div>
-    </nav>
+        </div>
+</nav>
 
 
     <section class="py-20">
