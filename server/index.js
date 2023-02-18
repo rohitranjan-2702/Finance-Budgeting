@@ -25,7 +25,7 @@ app.post('/signin',async(req,res)=>{
         const detail=req.body
         const user1=new user(detail);
         await user1.save();
-        res.status(200).json({message:newUser.toJSON()})
+        res.status(200).json({message:user1.toJSON()})
 
     }catch(error){
         res.status(500).json('error',error.message);
