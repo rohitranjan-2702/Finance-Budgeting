@@ -1,10 +1,10 @@
-import React from "react";
-import Expense from "./pages/Expense";
+
 function App() {
-  return (
+  return (<>
     <div className="App">
-      <Expense/>
+      Hello world
     </div>
+    </>
   );
 }
 
