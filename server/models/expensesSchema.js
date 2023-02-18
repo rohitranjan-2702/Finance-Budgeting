@@ -4,7 +4,7 @@ const Schema=mongoose.Schema
 
 const expenses=new Schema({
     date:{
-        type:Date,
+        type:String,
         required:true,
     },
     amount:{
@@ -19,11 +19,10 @@ const expenses=new Schema({
 })
 const expensesSchema=new Schema({
     year:{
-        // type:Number,
+
         type:Number,
         required:true,
-        min:4,
-        max:4
+        min:4
     },
     month:{
         type:String,
