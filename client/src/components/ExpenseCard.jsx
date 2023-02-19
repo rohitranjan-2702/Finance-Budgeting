@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDisclosure } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
+import { Radio, RadioGroup, Stack,NumberInput,
+  NumberInputField } from '@chakra-ui/react';
 
 import {
     Modal,
@@ -22,27 +24,45 @@ const ExpenseCard = () => {
   return (<>
   
       
-    <Button colorScheme='messenger' onClick={onOpen}>Add Expense</Button>
+    <Button colorScheme='messenger' onClick={onOpen}>New Record</Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Add your Expense</ModalHeader>
+                    <ModalHeader>Add New Record</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl>
                         <FormLabel>Amount</FormLabel>
-                        <Input placeholder='$-amount' />
+                        <NumberInput defaultValue={15} precision={2}>
+                          <NumberInputField />
+                        </NumberInput>
                         </FormControl>
+                        <RadioGroup defaultValue='2'>
+                          <Stack spacing={5} direction='row'>
+                            <Radio colorScheme='red' value='0'>
+                              Expense
+                            </Radio>
+                            <Radio colorScheme='green' value='1'>
+                              Income
+                            </Radio>
+                          </Stack>
+                        </RadioGroup>
 
                         <FormControl mt={4}>
                         <FormLabel>Tag</FormLabel>
-                        <Input placeholder='#tag' />
+                        <select id="cars" class="border-4 p-1 rounded-sm">
+                          <option value="#food">#food</option>
+                          <option value="#entertainment">#entertainment</option>
+                          <option value="#travel">#travel</option>
+                          <option value="#academics">#academics</option>
+                          <option value="#others">#others</option>
+                        </select>
                         </FormControl>
 
                         <FormControl mt={4}>
                         <FormLabel>Date</FormLabel>
-                        <Input placeholder='DD-MM-YYYY' />
+                        <Input type="date" placeholder='DD-MM-YYYY' name="date"/>
                         </FormControl>
                     </ModalBody>
 

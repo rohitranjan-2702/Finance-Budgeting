@@ -22,6 +22,7 @@ function App() {
           value={{ isLoggedIn, setIsLoggedIn, userName, setUserName }}
         >
           <Header />
+          
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -32,6 +33,7 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Expense />
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>
