@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const connection = require("./database/db");
+require("dotenv").config();
 const expenseRoute = require("./routes/expenseRoute");
 const userRoute = require("./routes/userRoute");
 
@@ -20,7 +21,6 @@ app.use("/expense", expenseRoute);
 app.use("/users", userRoute);
 
 app.use(errorMiddleware);
-
 
 connection();
 

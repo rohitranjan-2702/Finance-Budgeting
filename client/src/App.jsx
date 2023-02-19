@@ -3,8 +3,9 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ExpenseCard from "./components/ExpenseCard";
-import { ChakraProvider } from '@chakra-ui/react'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react';
+import Dashboard from "./pages/Dashboard";
 function App() {
   return (
     <ChakraProvider>
@@ -17,6 +18,7 @@ function App() {
       </Routes>
       </BrowserRouter>
       <Footer />
+      <Dashboard/>
     </ChakraProvider>
     
   );
