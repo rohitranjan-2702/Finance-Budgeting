@@ -20,7 +20,7 @@ const Header = () => {
           <div
             className="flex items-center"
             onClick={() => {
-              navigate("/");
+              navigate("/dashboard");
             }}
           >
             <img
