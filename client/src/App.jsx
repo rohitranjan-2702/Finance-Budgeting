@@ -7,8 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Dashboard from "./pages/Dashboard";
 import Header from "./components/header";
+<<<<<<< HEAD
 import Expense from "./pages/Expense";
 
+=======
+>>>>>>> ba9aba8f0f2a19f5c94bd96f5d0b9cab1ff4e2cd
 function App() {
   return (
     <ChakraProvider>
