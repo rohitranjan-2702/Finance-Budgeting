@@ -3,7 +3,8 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ExpenseCard from "./components/ExpenseCard";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       
       <div className="App">
         <Home />
+        <Dashboard/>
         <ExpenseCard/>
         <Login />
         <Signup />
