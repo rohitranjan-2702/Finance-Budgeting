@@ -17,10 +17,10 @@ function App() {
   const [userName, setUserName] = useState("");
   return (
     <ChakraProvider>
-      <LoginContext.Provider
-        value={{ isLoggedIn, setIsLoggedIn, userName, setUserName }}
-      >
-        <BrowserRouter>
+      <BrowserRouter>
+        <LoginContext.Provider
+          value={{ isLoggedIn, setIsLoggedIn, userName, setUserName }}
+        >
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,9 +32,9 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-        <Footer />
-      </LoginContext.Provider>
+          <Footer />
+        </LoginContext.Provider>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

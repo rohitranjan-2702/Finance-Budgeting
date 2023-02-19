@@ -3,12 +3,12 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer class="bg-[#1855cb] antialiased">
-        <div class="mx-auto px-16 py-20">
-          <div class="mt-8 grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
-            <div class="flex items-center justify-center">
+      <footer className="bg-[#1855cb] antialiased">
+        <div className="mx-auto px-16 py-20">
+          <div className="mt-8 grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
+            <div className="flex items-center justify-center">
               <img
-                class="object-contain object-center"
+                className="object-contain object-center"
                 src="https://i.ibb.co/cchk5Mp/logo.png"
                 alt=""
               />
