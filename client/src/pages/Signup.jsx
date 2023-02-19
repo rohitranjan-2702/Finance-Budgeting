@@ -13,11 +13,27 @@ const Signup = () => {
   };
   return (
     <>
-      <div class="m-4 flex h-[500px] max-w-full items-center justify-center rounded-md bg-slate-200">
+      <div class="m-0 flex h-[550px] max-w-full items-center justify-center rounded-md bg-slate-200">
         <div class="lg:h-[400px] lg:w-[400px] md:h-[350px] md:w-[350px]">
           <h2 class="mb-4 text-2xl font-semibold">SIGNUP</h2>
 
           <form>
+          <div class="group relative z-0 mb-6 w-full">
+              <input
+                type="name"
+                name="name"
+                id="floating_name"
+                class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_name"
+                class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+              >
+                Your Name
+              </label>
+            </div>
             <div class="group relative z-0 mb-6 w-full">
               <input
                 type="email"

@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -6,7 +6,9 @@ import ExpenseCard from "./components/ExpenseCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Dashboard from "./pages/Dashboard";
-import Header from "./components/Header";
+import Header from "./components/header";
+import Expense from "./pages/Expense";
+
 function App() {
   return (
     <ChakraProvider>
@@ -14,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/expenses" element={<ExpenseCard />} />
+          <Route path="/expenses" element={<Expense/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/signup" element={<Signup />} />

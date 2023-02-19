@@ -22,7 +22,7 @@ const ExpenseCard = () => {
   return (<>
   
       
-    <Button onClick={onOpen}>Add Expense</Button>
+    <Button colorScheme='messenger' onClick={onOpen}>Add Expense</Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />

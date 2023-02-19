@@ -39,10 +39,10 @@ export const data = {
 const ExpenseChart = () => {
   return (<>
 
-<div class="m-4 flex max-w-full flex-col items-center justify-center rounded-md bg-slate-200 p-5">
-  <div class="mb-4 text-3xl">Income: <span class="font-bold text-purple-700">$10,000</span></div>
-  <div class="mb-4 text-3xl">Expenses: <span class="font-bold text-purple-700">$7000</span></div>
-  <div class="mb-4 text-3xl">Savings: <span class="font-bold text-purple-700">$3000</span></div>
+<div class="m-0 flex max-w-full flex-col items-center justify-center rounded-md bg-slate-200 p-5">
+  {/* <div class="mb-4 text-3xl">Income: <span class="font-bold text-purple-700">$10,000</span></div>
+  <div class="mb-4 text-3xl">Expenses: <span class="font-bold text-purple-700">$7000</span></div> */}
+  <div class="mb-4 text-3xl">Total Expenses: <span class="font-bold text-purple-700">$3000</span></div>
   <div class="mb-4 text-3xl font-medium">Pie Chart</div>
   <div class="flex h-[260px] w-[260px] items-center justify-center">
   <Doughnut data={data} />;

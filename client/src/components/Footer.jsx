@@ -5,15 +5,15 @@ const Footer = () => {
     <>
     <footer class="bg-[#1855cb] antialiased">
   <div class="mx-auto px-16 py-20">
-    <div class="mx-auto max-w-2xl">
+    {/* <div class="mx-auto max-w-2xl">
       <h1 class="mb-6 text-center text-4xl font-bold text-white">Seasoned. Nimble. Remote.</h1>
       <p class="mb-8 text-center text-sm font-normal leading-6 text-white/80">We’re a diverse and passionate team that takes ownership of your design and empower you to execute the roadmap. We stay light on our feet and truly enjoy delivering great work.</p>
       <div class="w-100 flex justify-center gap-x-8">
         <a class="inline-flex items-center rounded-full bg-gray-100 py-1.5 px-4" href="">👀<span class="ml-1">Insights</span></a>
         <a class="inline-flex items-center rounded-full bg-gray-100 py-1.5 px-4" href="">👋<span class="ml-1">Contact</span></a>
       </div>
-    </div>
-    <hr class="mt-20 md:mx-20 sm:mx-6 bg-white opacity-[0.25]" />
+    </div> */}
+    {/* <hr class="mt-20 md:mx-20 sm:mx-6 bg-white opacity-[0.25]" /> */}
     <div class="mt-8 grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
       <div class="flex items-center justify-center">
         <img class="object-contain object-center" src="https://i.ibb.co/cchk5Mp/logo.png" alt="" />
