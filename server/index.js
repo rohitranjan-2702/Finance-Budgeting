@@ -3,6 +3,7 @@ const cors = require("cors");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const connection = require("./database/db");
 const expenseRoute = require("./routes/expenseRoute");
+const userRoute = require("./routes/userRoute");
 
 const port = 6000;
 
@@ -16,8 +17,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/expense", expenseRoute);
+app.use("/users", userRoute);
 
 app.use(errorMiddleware);
+
 
 connection();
 

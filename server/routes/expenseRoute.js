@@ -1,8 +1,11 @@
 const express = require("express");
-const { getExpenses, addExpense, test } = require("../controllers/expenseController");
+const { getExpenses, addExpense } = require("../controllers/expenseController");
+const protect = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
-router.get("/monthly", getExpenses).post("/new", addExpense).post("/test", test);
+router.get("/monthly", protect, getExpenses);
+router.post("/new", protect, addExpense);
+
 
 module.exports = router;
