@@ -47,9 +47,9 @@ const Login = () => {
   };
   return (
     <>
-      <div className="m-4 flex h-[500px] max-w-full items-center justify-center rounded-md bg-slate-200">
-        <div className="md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
-          <h2 className="mb-4 text-2xl font-semibold ">LOGIN</h2>
+      <div class="m-0 flex h-[550px] max-w-full items-center justify-center rounded-md bg-slate-200">
+        <div class="md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
+          <h2 class="mb-4 text-2xl font-semibold ">LOGIN</h2>
 
           <form>
             <div className="mb-6">
