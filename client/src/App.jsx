@@ -4,6 +4,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { LoginContext } from "./Contexts/LoginContext";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Home from "./pages/Home";
+import Invest from "./pages/Invest";
+import Videos from "./components/Videos";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -26,12 +28,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/Videos" element={<Videos />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/expenses" element={<Expense />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Route>
             <Route path="*" element={<NotFound />} />
+            <Route path="/invest" element={<Invest/>}/>
           </Routes>
+          {/* <Expense /> */}
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>
