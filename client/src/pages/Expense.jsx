@@ -6,20 +6,20 @@ const Expense = () => {
   const handleDelete = () => {};
   return (
     <>
-      <div class=" p-5 bg-slate-200 w-full mr-6">
-        <div class="flex items-center justify-center flex-row">
-          <div class="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
-            <h5 class="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
+      <div className=" p-5 bg-slate-200 w-full mr-6">
+        <div className="flex items-center justify-center flex-row">
+          <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
+            <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
               Amount
             </h5>
-            <h5 class="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
+            <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
               DD-MM-YYYY
             </h5>
-            <div class="flex h-8 w-16 items-center justify-center rounded-full bg-black text-sm font-thin text-white">
+            <div className="flex h-8 w-16 items-center justify-center rounded-full bg-black text-sm font-thin text-white">
               #tag
             </div>
             <div
-              class="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
               onClick={() => handleDelete()}
             >
               <svg
@@ -27,7 +27,7 @@ const Expense = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-trash text-white"
+                className="bi bi-trash text-white"
                 viewBox="0 0 16 16"
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -39,19 +39,19 @@ const Expense = () => {
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center flex-row">
-          <div class="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
-            <h5 class="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
+        <div className="flex items-center justify-center flex-row">
+          <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
+            <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
               $20
             </h5>
-            <h5 class="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
+            <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
               19-02-2023
             </h5>
-            <div class="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
+            <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
               #food
             </div>
             <div
-              class="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
               onClick={() => handleDelete()}
             >
               <svg
@@ -59,7 +59,7 @@ const Expense = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-trash text-white"
+                className="bi bi-trash text-white"
                 viewBox="0 0 16 16"
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -71,19 +71,19 @@ const Expense = () => {
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center flex-row">
-          <div class="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
-            <h5 class="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
+        <div className="flex items-center justify-center flex-row">
+          <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
+            <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
               $20
             </h5>
-            <h5 class="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
+            <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
               19-02-2023
             </h5>
-            <div class="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
+            <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
               #food
             </div>
             <div
-              class="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
               onClick={() => handleDelete()}
             >
               <svg
@@ -91,7 +91,7 @@ const Expense = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-trash text-white"
+                className="bi bi-trash text-white"
                 viewBox="0 0 16 16"
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -103,19 +103,19 @@ const Expense = () => {
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center flex-row">
-          <div class="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
-            <h5 class="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
+        <div className="flex items-center justify-center flex-row">
+          <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
+            <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
               $20
             </h5>
-            <h5 class="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
+            <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
               19-02-2023
             </h5>
-            <div class="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
+            <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
               #food
             </div>
             <div
-              class="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
               onClick={() => handleDelete()}
             >
               <svg
@@ -123,7 +123,7 @@ const Expense = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-trash text-white"
+                className="bi bi-trash text-white"
                 viewBox="0 0 16 16"
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -135,19 +135,19 @@ const Expense = () => {
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center flex-row">
-          <div class="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
-            <h5 class="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
+        <div className="flex items-center justify-center flex-row">
+          <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
+            <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
               $20
             </h5>
-            <h5 class="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
+            <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
               19-02-2023
             </h5>
-            <div class="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
+            <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
               #food
             </div>
             <div
-              class="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
               onClick={() => handleDelete()}
             >
               <svg
@@ -155,7 +155,7 @@ const Expense = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-trash text-white"
+                className="bi bi-trash text-white"
                 viewBox="0 0 16 16"
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -167,7 +167,7 @@ const Expense = () => {
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center flex-row">
+        <div className="flex items-center justify-center flex-row">
           <ExpenseCard />
         </div>
       </div>

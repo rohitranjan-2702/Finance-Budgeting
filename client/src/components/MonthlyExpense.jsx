@@ -52,8 +52,8 @@ ChartJS.register(
 const MonthlyExpense = () => {
   return (
   <>
-  <div class="m-4 flex max-w-full flex-col items-center justify-center rounded-md bg-slate-200 p-5">
-    <div class="flex h-[500px] w-[500px] items-center justify-center">
+  <div className="m-4 flex max-w-full flex-col items-center justify-center rounded-md bg-slate-200 p-5">
+    <div className="flex h-[500px] w-[500px] items-center justify-center">
         <Line options={options} data={data} />;
     </div>
   </div>
