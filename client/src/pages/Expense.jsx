@@ -11,7 +11,7 @@ const demoData = [
     tags:
       "food"
   ,
-    type:"income",
+    type:"expense",
     amount: 5000
   },
   {
@@ -20,7 +20,7 @@ const demoData = [
     tags:
       "food"
   ,
-    type:"income",
+    type:"expense",
     amount: 3000
   },
   {
@@ -47,6 +47,7 @@ function createEntry(dataset) {
     <NewCard
       key={dataset.id}
       amount={dataset.amount}
+      type={dataset.type}
       date={dataset.date}
       tags={dataset.tags[0]}
     />
@@ -61,10 +62,9 @@ const Expense = () => {
     <>
       <div className=" p-5 bg-slate-200 w-full mr-6">
       <div className="flex items-center justify-center m-4">
-            <label for="month">Choose month: </label>
+            <label htmlFor="month">Choose month: </label>
             <input className="m-2 p-2" type="month" name="month"
-            min="2023-01" onChange={() => setValue()}/>
-            <div className='flex items-center justify-center m-4 text-4xl'>{value}</div>
+            min="2023-01"/>
           </div>
         <div className="flex items-center justify-center flex-row">
           <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
@@ -91,7 +91,7 @@ const Expense = () => {
               >
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
                 />
               </svg>
