@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import ExpenseChart from "../components/ExpenseChart";
 import ExpenseCard from "../components/ExpenseCard";
 import NewCard from "../components/NewCard";
@@ -55,13 +55,16 @@ function createEntry(dataset) {
 
 const Expense = () => {
   const handleDelete = () => {};
+  const [value, setValue] = useState("");
+  
   return (
     <>
       <div className=" p-5 bg-slate-200 w-full mr-6">
       <div className="flex items-center justify-center m-4">
             <label for="month">Choose month: </label>
             <input className="m-2 p-2" type="month" name="month"
-            min="2023-01" value="2026-12"/>
+            min="2023-01" onChange={() => setValue()}/>
+            <div className='flex items-center justify-center m-4 text-4xl'>{value}</div>
           </div>
         <div className="flex items-center justify-center flex-row">
           <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">

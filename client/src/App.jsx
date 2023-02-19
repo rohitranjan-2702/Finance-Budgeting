@@ -38,6 +38,7 @@ function App() {
             <Route path="/invest" element={<Invest/>}/>
           </Routes>
           <Expense />
+
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>
