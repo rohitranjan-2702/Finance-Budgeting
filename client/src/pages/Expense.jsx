@@ -106,7 +106,7 @@ const Expense = () => {
         </div>
       </div>
 
-      <ExpenseChart />
+      <ExpenseChart sum={demoData}/>
     </>
   );
 };

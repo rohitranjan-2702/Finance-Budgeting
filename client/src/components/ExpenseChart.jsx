@@ -36,13 +36,29 @@ export const data = {
     ],
   };
 
-const ExpenseChart = () => {
+const ExpenseChart = ({sum}) => {
+  const ashu=()=>{
+    let s=0;
+  const x= sum.map((e)=>{
+   
+  if(e.type==="expense"){
+    s=s-e.amount;
+  }else{
+    s=s+e.amount;
+  }
+  
+} )
+  return s;
+   }
+
+
   return (<>
 
 <div className="m-0 flex max-w-full flex-col items-center justify-center rounded-md bg-slate-200 p-5">
   {/* <div className="mb-4 text-3xl">Income: <span className="font-bold text-purple-700">$10,000</span></div>
   <div className="mb-4 text-3xl">Expenses: <span className="font-bold text-purple-700">$7000</span></div> */}
-  <div className="mb-4 text-3xl">Total Expenses: <span className="font-bold text-purple-700">$3000</span></div>
+  <div className="mb-4 text-3xl">Total Expenses: <span className="font-bold text-purple-700">{ashu()}</span>
+ </div>
   <div className="mb-4 text-3xl font-medium">Pie Chart</div>
   <div className="flex h-[260px] w-[260px] items-center justify-center">
   <Doughnut data={data} />;
