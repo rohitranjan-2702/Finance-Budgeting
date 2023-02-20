@@ -2,20 +2,19 @@ const mongoose = require("mongoose");
 const expense = require("../models/expensesSchema");
 
 // @desc : get all expenses of particular month of signed-in user
-// @route: GET /expense/monthly
+// @route: POST /expense/monthly
 // @reqBody: year, month
 // @access: private
 const getExpenses = async (req, res) => {
   try {
     const { _id } = req.user;
     const { year, month } = req.body;
-    const expenses = (
-      await expense.findOne({
-        user: _id,
-        year,
-        month,
-      })
-    ).expenses;
+    const expensesExists = await expense.findOne({
+      user: _id,
+      year,
+      month,
+    });
+    const expenses = expensesExists ? expensesExists.expenses : [];
     res.status(200).json(expenses);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -29,14 +28,14 @@ const getExpenses = async (req, res) => {
 const addExpense = async (req, res) => {
   try {
     const { _id } = req.user;
-    const { title, year, month, date, amount, tags } = req.body;
+    const { title, year, month, date, amount, tags, type } = req.body;
     const expenses = await expense.findOneAndUpdate(
       {
         user: _id,
         year: year,
         month: month,
       },
-      { $push: { expenses: { title, date, amount, tags } } },
+      { $push: { expenses: { title, date, amount, type, tags } } },
       { upsert: true, new: true }
     );
     res.status(200).json({
