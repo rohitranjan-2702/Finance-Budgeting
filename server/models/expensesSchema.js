@@ -14,6 +14,7 @@ const expenses = new Schema({
     type: Number,
     required: true,
   },
+  type: { type: String, required: true }, //income or expense
   tags: [
     {
       type: String,
@@ -37,7 +38,6 @@ const expensesSchema = new Schema({
     min: 3,
     max: 12,
   },
-  type: { type: String, required: true }, //income or expense
   expenses: [expenses],
 });
 module.exports = mongoose.model("expensesamount", expensesSchema);

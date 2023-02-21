@@ -1,7 +1,14 @@
 import React from "react";
+import { deleteExpense } from "../utils/dbHelpers";
 
-function NewCard({ amount, type = "", date, tags }) {
-  const handleDelete = () => {};
+function NewCard({ id, amount, type = "", date, tags, triggerFetch }) {
+  const month = parseInt(date.slice(5, 7)) - 1;
+  const year = date.slice(0, 4);
+  const handleDelete = () => {
+    deleteExpense(month, year, id).then(() => {
+      triggerFetch();
+    });
+  };
   return (
     <>
       <div className="flex items-center justify-center flex-row">
@@ -13,13 +20,13 @@ function NewCard({ amount, type = "", date, tags }) {
             {amount}
           </h5>
           <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
-            {date.slice(0, 10)}
+            {date}
           </h5>
           <div className="flex h-8 w-24 items-center justify-center rounded-full bg-purple-500 text-[12px] font-normal text-white">
             {tags}
           </div>
           <div
-            className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
+            className="w-8 h-8 rounded-xl flex bg-red-500 items-center justify-center"
             onClick={() => handleDelete()}
           >
             <svg

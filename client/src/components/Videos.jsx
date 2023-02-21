@@ -39,9 +39,6 @@ const Videos = () => {
                <span class="flex-1 ml-3 whitespace-nowrap">Podcast</span>
             </a>
          </li>
-       
-        
-    
       </ul>
    </div>
 </aside>

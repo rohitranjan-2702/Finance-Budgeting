@@ -1,72 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ExpenseChart from "../components/ExpenseChart";
 import ExpenseCard from "../components/ExpenseCard";
 import NewCard from "../components/NewCard";
-
-const demoData = [
-  {
-    id: 1,
-    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags: ["#entertainment"],
-    type: "expense",
-    amount: 5000,
-  },
-  {
-    id: 2,
-    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags: ["#food"],
-    type: "expense",
-    amount: 3000,
-  },
-  {
-    id: 3,
-    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags: ["#food"],
-    type: "income",
-    amount: 8000,
-  },
-  {
-    id: 4,
-    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags: ["#travel"],
-    type: "income",
-    amount: 9000,
-  },
-];
-
-function createEntry(dataset) {
-  return (
-    <NewCard
-      key={dataset.id}
-      amount={dataset.amount}
-      type={dataset.type}
-      date={dataset.date}
-      tags={dataset.tags}
-    />
-  );
-}
+import { getMonthlyExpense } from "../utils/dbHelpers";
 
 const Expense = () => {
-  const handleDelete = () => {};
-  const [value, setValue] = useState("");
+  const [allTransactionData, setAllTransactionData] = useState([]);
+  const [totalExpense, setTotalExpense] = useState(0);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [date, setDate] = useState({
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
+  });
+  const fetchData = () => {
+    getMonthlyExpense(date.year, date.month).then((expenses) => {
+      console.log("fetching")
+      let expenseSum = 0;
+      let incomeSum = 0;
+      expenses.forEach((item) => {
+        if (item.type === "income") {
+          incomeSum += item.amount;
+        } else if (item.type === "expense") {
+          expenseSum += item.amount;
+        }
+      });
+      setTotalExpense(expenseSum);
+      setTotalIncome(incomeSum);
+      setAllTransactionData(expenses);
+    });
+  };
+  useEffect(() => {
+    fetchData();
+  }, [date]);
 
-  // function totalAmount(data) {
-  //   let sum = 0;
-  //   const length = data.length;
-  //   for (let i = 0; i < length; i++) {
-  //     sum += data[i].amount;
-  //   }
-  //   setValue(sum);
-  // }
-
-  // totalAmount(demoData);
+  const labelValue = {};
+  const expenseData = allTransactionData.filter((item) => {
+    return item.type === "expense";
+  });
+  expenseData.forEach((item) => {
+    if (labelValue[item.tags[0]] === undefined) {
+      labelValue[item.tags[0]] = item.amount;
+    } else {
+      labelValue[item.tags[0]] += item.amount;
+    }
+  });
+  const labels = Object.keys(labelValue).length
+    ? Object.keys(labelValue)
+    : ["No-Expenses"];
+  const values = Object.values(labelValue).length
+    ? Object.values(labelValue)
+    : [100];
 
   return (
     <>
       <div className=" p-5 bg-slate-200 w-full mr-6">
         <div className="flex items-center justify-center m-4">
           <label htmlFor="month">Choose month: </label>
-          <input className="m-2 p-2" type="month" name="month" min="2023-01" />
+          <input
+            className="m-2 p-2"
+            type="month"
+            name="month"
+            value={`${date.year}-${String(date.month + 1).padStart(2, "0")}`}
+            onChange={(e) => {
+              setDate({
+                month: parseInt(e.target.value.slice(5, 7)) - 1,
+                year: parseInt(e.target.value.slice(0, 4)),
+              });
+            }}
+          />
         </div>
         <div className="flex items-center justify-center flex-row">
           <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
@@ -79,36 +80,31 @@ const Expense = () => {
             <div className="flex h-8 w-16 items-center justify-center rounded-full bg-black text-sm font-thin text-white">
               #tag
             </div>
-            <div
-              className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"
-              onClick={() => handleDelete()}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-trash text-white"
-                viewBox="0 0 16 16"
-              >
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                <path
-                  fillRule="evenodd"
-                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                />
-              </svg>
-            </div>
           </div>
         </div>
 
-        {demoData.map(createEntry)}
+        {allTransactionData.map((data) => (
+          <NewCard
+            key={data._id}
+            id={data._id}
+            amount={data.amount}
+            type={data.type}
+            date={data.date}
+            tags={data.tags[0]}
+            triggerFetch={fetchData}
+          />
+        ))}
 
         <div className="flex items-center justify-center flex-row">
-          <ExpenseCard />
+          <ExpenseCard triggerFetch={fetchData} />
         </div>
       </div>
 
-      <ExpenseChart totalExpense={value}/>
+      <ExpenseChart
+        labels={labels}
+        values={values}
+        totalExpense={totalExpense}
+      />
     </>
   );
 };
