@@ -37,7 +37,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/invest" element={<Invest/>}/>
           </Routes>
-          <Expense />
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>
