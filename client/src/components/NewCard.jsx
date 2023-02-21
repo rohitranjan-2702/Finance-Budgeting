@@ -15,8 +15,8 @@ function NewCard({ amount, type = "", date, tags }) {
           <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
             {date.slice(0, 10)}
           </h5>
-          <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
-            #{tags}
+          <div className="flex h-8 w-24 items-center justify-center rounded-full bg-purple-500 text-[12px] font-normal text-white">
+            {tags}
           </div>
           <div
             className="w-8 h-8 rounded-xl bg-red-500 items-center justify-center hidden"

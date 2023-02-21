@@ -1,45 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import ExpenseChart from "../components/ExpenseChart";
 import ExpenseCard from "../components/ExpenseCard";
 import NewCard from "../components/NewCard";
 
-
 const demoData = [
   {
     id: 1,
-    date:"Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags:
-      "food"
-  ,
-    type:"expense",
-    amount: 5000
+    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
+    tags: ["#entertainment"],
+    type: "expense",
+    amount: 5000,
   },
   {
     id: 2,
-    date:"Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags:
-      "food"
-  ,
-    type:"expense",
-    amount: 3000
+    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
+    tags: ["#food"],
+    type: "expense",
+    amount: 3000,
   },
   {
     id: 3,
-    date:"Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags:
-      "food"
-  ,
-    type:"income",
-    amount: 8000
+    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
+    tags: ["#food"],
+    type: "income",
+    amount: 8000,
   },
   {
     id: 4,
-    date:"Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
-    tags:"food",
-    type:"income",
-    amount: 9000
+    date: "Sun Feb 20 2023 13:37:36 GMT+0530 (India Standard Time)",
+    tags: ["#travel"],
+    type: "income",
+    amount: 9000,
   },
-  
 ];
 
 function createEntry(dataset) {
@@ -49,7 +41,7 @@ function createEntry(dataset) {
       amount={dataset.amount}
       type={dataset.type}
       date={dataset.date}
-      tags={dataset.tags[0]}
+      tags={dataset.tags}
     />
   );
 }
@@ -57,15 +49,25 @@ function createEntry(dataset) {
 const Expense = () => {
   const handleDelete = () => {};
   const [value, setValue] = useState("");
-  
+
+  // function totalAmount(data) {
+  //   let sum = 0;
+  //   const length = data.length;
+  //   for (let i = 0; i < length; i++) {
+  //     sum += data[i].amount;
+  //   }
+  //   setValue(sum);
+  // }
+
+  // totalAmount(demoData);
+
   return (
     <>
       <div className=" p-5 bg-slate-200 w-full mr-6">
-      <div className="flex items-center justify-center m-4">
-            <label htmlFor="month">Choose month: </label>
-            <input className="m-2 p-2" type="month" name="month"
-            min="2023-01"/>
-          </div>
+        <div className="flex items-center justify-center m-4">
+          <label htmlFor="month">Choose month: </label>
+          <input className="m-2 p-2" type="month" name="month" min="2023-01" />
+        </div>
         <div className="flex items-center justify-center flex-row">
           <div className="flex justify-between gap-4 rounded-lg border border-gray-200 bg-white p-3 w-[400px] shadow dark:border-gray-700 dark:bg-gray-800 mb-2">
             <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-gray-900 dark:text-white ml-2">
@@ -98,15 +100,15 @@ const Expense = () => {
             </div>
           </div>
         </div>
-       
+
         {demoData.map(createEntry)}
-        
+
         <div className="flex items-center justify-center flex-row">
-          <ExpenseCard/>
+          <ExpenseCard />
         </div>
       </div>
 
-      <ExpenseChart />
+      <ExpenseChart totalExpense={value}/>
     </>
   );
 };
