@@ -15,16 +15,25 @@ import NotFound from "./pages/NotFound";
 import Expense from "./pages/Expense";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("user"))?.isAuthed || false
+  );
+  const [userName, setUserName] = useState(
+    JSON.parse(localStorage.getItem("user"))?.name || ""
+  );
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    setUserName("");
+  };
   return (
     <ChakraProvider>
       <BrowserRouter>
         <LoginContext.Provider
-          value={{ isLoggedIn, setIsLoggedIn, userName, setUserName }}
+          value={{ isLoggedIn, setIsLoggedIn, userName, setUserName, logout }}
         >
           <Header />
-          
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -34,10 +43,9 @@ function App() {
               <Route path="/expenses" element={<Expense />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Route>
+            <Route path="/invest" element={<Invest />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/invest" element={<Invest/>}/>
           </Routes>
-          <Expense />
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>

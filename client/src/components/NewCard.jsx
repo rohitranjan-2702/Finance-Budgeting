@@ -5,7 +5,11 @@ function NewCard({ id, amount, type = "", date, tags, triggerFetch }) {
   const month = parseInt(date.slice(5, 7)) - 1;
   const year = date.slice(0, 4);
   const handleDelete = () => {
-    deleteExpense(month, year, id).then(() => {
+    deleteExpense(month, year, id).then(([error, result]) => {
+      if (error) {
+        console.log("ERROR: " + error);
+      }
+      console.log("Expense deleted");
       triggerFetch();
     });
   };

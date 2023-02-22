@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../Contexts/LoginContext";
 
 const Header = () => {
-  const { isLoggedIn, setIsLoggedIn, setUserName } = useContext(LoginContext);
+  const { isLoggedIn, logout } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    setUserName("");
+    logout();
     navigate("/login");
   };
 
@@ -71,4 +69,3 @@ const Header = () => {
 };
 
 export default Header;
-

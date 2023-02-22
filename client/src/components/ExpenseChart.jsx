@@ -48,7 +48,7 @@ const ExpenseChart = ({ labels, values, totalExpense }) => {
         </div>
         <div className="mb-4 text-3xl font-medium">Pie Chart</div>
         <div className="flex h-[260px] w-[260px] items-center justify-center">
-          <Doughnut data={data} />;
+          <Doughnut data={data} />
         </div>
       </div>
     </>

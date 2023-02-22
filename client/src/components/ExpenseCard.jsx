@@ -37,9 +37,15 @@ const ExpenseCard = ({ triggerFetch }) => {
   const onSubmit = () => {
     const year = date.slice(0, 4);
     const month = parseInt(date.slice(5, 7));
-    addExpense(title, year, month - 1, date, amount, type, tags).then(() => {
-      triggerFetch();
-    });
+    addExpense(title, year, month - 1, date, amount, type, tags).then(
+      ([error, result]) => {
+        if (error) {
+          console.log("ERROR: " + error);
+        }
+        console.log("Expense added");
+        triggerFetch();
+      }
+    );
     onClose();
     // navigate(0);
   };

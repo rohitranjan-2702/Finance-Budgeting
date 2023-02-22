@@ -72,14 +72,14 @@ const MonthlyExpense = () => {
 
   <Hide breakpoint='(max-width: 400px)'>
     <div className="flex h-[650px] w-[650px] items-center justify-center">
-        <Line options={options} data={data} />;
+        <Line options={options} data={data} />
     </div>
   </Hide>
 
     
     <Show breakpoint='(max-width: 400px)'>
       <div className="flex h-[300px] w-[300px] items-center justify-center">
-          <Line options={options} data={data1} />;
+          <Line options={options} data={data1} />
       </div>
     </Show>
   </div>

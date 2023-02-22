@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import ExpenseChart from "../components/ExpenseChart";
 import ExpenseCard from "../components/ExpenseCard";
 import NewCard from "../components/NewCard";
@@ -12,9 +13,12 @@ const Expense = () => {
     month: new Date().getMonth(),
     year: new Date().getFullYear(),
   });
+  const navigate = useNavigate();
   const fetchData = () => {
-    getMonthlyExpense(date.year, date.month).then((expenses) => {
-      console.log("fetching")
+    getMonthlyExpense(date.year, date.month).then(([error, expenses]) => {
+      if (error) {
+        navigate("/login");
+      }
       let expenseSum = 0;
       let incomeSum = 0;
       expenses.forEach((item) => {

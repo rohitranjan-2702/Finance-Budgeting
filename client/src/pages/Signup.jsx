@@ -46,6 +46,7 @@ const Signup = () => {
         setIsLoggedIn(true);
         setUserName(result.name);
         localStorage.setItem("token", result.token);
+        localStorage.setItem("user", { name: result.name, isAuthed: true });
         navigate("/dashboard");
       })
       .catch((error) => console.log("error", error));
@@ -60,7 +61,7 @@ const Signup = () => {
           <h2 className="mb-4 text-2xl font-semibold">SIGNUP</h2>
 
           <form>
-          <div className="group relative z-0 mb-6 w-full">
+            <div className="group relative z-0 mb-6 w-full">
               <input
                 type="name"
                 name="name"

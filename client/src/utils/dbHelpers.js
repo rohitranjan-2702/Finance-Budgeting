@@ -13,12 +13,8 @@ const months = [
   "December",
 ];
 
-const getUser = async () => {
+export const getUser = async () => {
   const token = localStorage.getItem("token");
-  let userData = { userLoggedIn: false, userName: "" };
-  if (!token) {
-    return userData;
-  }
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
   var requestOptions = {
@@ -26,26 +22,28 @@ const getUser = async () => {
     headers: myHeaders,
     redirect: "follow",
   };
-  userData = await fetch("http://localhost:5000/users/me", requestOptions)
+  return await fetch("http://localhost:5000/users/me", requestOptions)
     .then((response) => {
       if (response.status === 401) {
-        localStorage.removeItem("token");
-        throw new Error("token expired");
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ isAuthed: false, name: "" })
+        );
+        localStorage.setItem("token", "");
+        throw new Error("unauthorized");
       }
       return response.json();
     })
     .then((result) => {
-      console.log(result);
-      return { userLoggedIn: true, userName: result.name };
+      return [null, result];
     })
     .catch((error) => {
       console.log("error", error);
-      return { userLoggedIn: false, userName: "" };
+      return [error, null];
     });
-  return userData;
 };
 
-const getMonthlyExpense = async (year, month) => {
+export const getMonthlyExpense = async (year, month) => {
   const token = localStorage.getItem("token");
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
@@ -63,15 +61,35 @@ const getMonthlyExpense = async (year, month) => {
   };
 
   return await fetch("http://localhost:5000/expense/monthly", requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      return result;
+    .then((response) => {
+      if (response.status === 401) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ isAuthed: false, name: "" })
+        );
+        localStorage.setItem("token", "");
+        throw new Error("unauthorized");
+      }
+      return response.json();
     })
-    .catch((error) => console.log("error", error));
+    .then((result) => {
+      return [null, result];
+    })
+    .catch((error) => {
+      console.log("error", error);
+      return [error, null];
+    });
 };
 
-const addExpense = async (title, year, month, date, amount, type, tags) => {
+export const addExpense = async (
+  title,
+  year,
+  month,
+  date,
+  amount,
+  type,
+  tags
+) => {
   const token = localStorage.getItem("token");
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
@@ -94,15 +112,27 @@ const addExpense = async (title, year, month, date, amount, type, tags) => {
   };
 
   return await fetch("http://localhost:5000/expense/new", requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      return result;
+    .then((response) => {
+      if (response.status === 401) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ isAuthed: false, name: "" })
+        );
+        localStorage.setItem("token", "");
+        throw new Error("unauthorized");
+      }
+      return response.json();
     })
-    .catch((error) => console.log("error", error));
+    .then((result) => {
+      return [null, result];
+    })
+    .catch((error) => {
+      console.log("error", error);
+      return [error, null];
+    });
 };
 
-const deleteExpense = async (month, year, id) => {
+export const deleteExpense = async (month, year, id) => {
   const token = localStorage.getItem("token");
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
@@ -121,17 +151,22 @@ const deleteExpense = async (month, year, id) => {
   };
 
   return await fetch("http://localhost:5000/expense/delete", requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      return result;
+    .then((response) => {
+      if (response.status === 401) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ isAuthed: false, name: "" })
+        );
+        localStorage.setItem("token", "");
+        throw new Error("unauthorized");
+      }
+      return response.json();
     })
-    .catch((error) => console.log("error", error));
-};
-
-module.exports = {
-  getUser,
-  getMonthlyExpense,
-  addExpense,
-  deleteExpense,
+    .then((result) => {
+      return [null, result];
+    })
+    .catch((error) => {
+      console.log("error", error);
+      return [error, null];
+    });
 };

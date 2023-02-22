@@ -39,6 +39,10 @@ const Login = () => {
         setIsLoggedIn(true);
         setUserName(result.name);
         localStorage.setItem("token", result.token);
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ name: result.name, isAuthed: true })
+        );
         navigate("/dashboard");
       })
       .catch((error) => console.log("error", error));
