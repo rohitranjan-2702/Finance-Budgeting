@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const expense = require("../models/expensesSchema");
 
-// @desc : get all expenses of particular month of signed-in user
+// @desc : get one month expenses of signed-in user
 // @route: POST /expense/monthly
 // @reqBody: year, month
 // @access: private
-const getExpenses = async (req, res) => {
+const getOneMonthExpenses = async (req, res) => {
   try {
     const { _id } = req.user;
     const { year, month } = req.body;
@@ -17,7 +17,62 @@ const getExpenses = async (req, res) => {
     const expenses = expensesExists ? expensesExists.expenses : [];
     res.status(200).json(expenses);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500);
+    throw new Error(err.message);
+  }
+};
+
+// @desc : get six month expenses of signed-in user
+// @route: GET /expense/sixmonth
+// @reqBody:
+// @access: private
+const getSixMonthExpenses = async (req, res) => {
+  const date = new Date();
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const currYear = date.getFullYear();
+  let totalMonths = 6;
+  let queryClause = {};
+  queryClause[currYear] = [];
+  for (i = date.getMonth(); i >= 0 && totalMonths > 0; i--) {
+    queryClause[currYear].push(months[i]);
+    totalMonths--;
+  }
+  if (totalMonths > 0) {
+    queryClause[currYear - 1] = [];
+    for (i = 11; i >= 0 && totalMonths > 0; i--) {
+      queryClause[currYear - 1].push(months[i]);
+      totalMonths--;
+    }
+  }
+  // res.send(queryClause);
+  try {
+    let result = [];
+    const { _id } = req.user;
+    for (year in queryClause) {
+      const expensesExists = await expense.find({
+        user: _id,
+        year: year,
+        month: { $in: queryClause[year] },
+      });
+      result = [...result, ...expensesExists];
+    }
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(500);
+    throw new Error(err.message);
   }
 };
 
@@ -41,8 +96,9 @@ const addExpense = async (req, res) => {
     res.status(200).json({
       expenses,
     });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    res.status(500);
+    throw new Error(err.message);
   }
 };
 
@@ -66,13 +122,15 @@ const deleteExpense = async (req, res) => {
     res.status(200).json({
       expenses,
     });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    res.status(500);
+    throw new Error(err.message);
   }
 };
 
 module.exports = {
-  getExpenses,
+  getOneMonthExpenses,
+  getSixMonthExpenses,
   addExpense,
   deleteExpense,
 };

@@ -81,6 +81,38 @@ export const getMonthlyExpense = async (year, month) => {
     });
 };
 
+export const getSixMonthExpenses = async () => {
+  const token = localStorage.getItem("token");
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${token}`);
+
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  return await fetch("http://localhost:5000/expense/sixmonth", requestOptions)
+    .then((response) => {
+      if (response.status === 401) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ isAuthed: false, name: "" })
+        );
+        localStorage.setItem("token", "");
+        throw new Error("unauthorized");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      return [null, result];
+    })
+    .catch((error) => {
+      console.log("error", error);
+      return [error, null];
+    });
+};
+
 export const addExpense = async (
   title,
   year,

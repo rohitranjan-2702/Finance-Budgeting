@@ -103,7 +103,7 @@ const ExpenseCard = ({ triggerFetch }) => {
               <FormLabel>Tag</FormLabel>
               <select
                 id="tags"
-                class="border-4 p-1 rounded-sm"
+                className="border-4 p-1 rounded-sm"
                 name="tags"
                 onChange={(e) => {
                   setTags(e.currentTarget.value);
