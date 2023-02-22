@@ -26,8 +26,8 @@ function NewCard({ id, amount, type = "", date, tags, triggerFetch }) {
           <h5 className="mb-2 text-[18px] font-normal tracking-tight text-gray-900 dark:text-white ml-2">
             {date}
           </h5>
-          <div className="flex h-8 w-16 items-center justify-center rounded-full bg-purple-500 text-sm font-normal text-white">
-            #{tags}
+          <div className="flex h-8 w-24 items-center justify-center rounded-full bg-purple-500 text-[12px] font-normal text-white">
+            {tags}
           </div>
           <div
             className="w-8 h-8 rounded-xl flex bg-red-500 items-center justify-center"

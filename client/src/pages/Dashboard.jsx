@@ -24,6 +24,10 @@ const Dashboard = () => {
             <MonthlyExpense />
           </div>
           <div className="m-4 flex md:w-1/2 w-full flex-col items-center justify-center p-4">
+          <div className="mb-4 text-3xl font-bold">
+              Feb 2023{" "}
+              
+            </div>
             <div className="mb-4 text-3xl">
               Income:{" "}
               <span className="text-4xl font-bold text-blue-600">$10,000</span>
